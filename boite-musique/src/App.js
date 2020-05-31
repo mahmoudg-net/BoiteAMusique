@@ -73,23 +73,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" id="drum-machine">
-        <Display description={this.state.currentSound} />
-        {Object.keys(this.sounds).map((associatedLetter) => {
-          return (
-            <MusicButton
-              key={associatedLetter}
-              associatedLetter={associatedLetter}
-              description={this.sounds[associatedLetter].description}
-              soundUrl={this.sounds[associatedLetter].soundUrl}
-              handleClick={(description) => {
-                this.setState(
-                  Object.assign(this.state, { currentSound: description })
-                );
-              }}
-            />
-          );
-        })}
+      <div className="App">
+        <div id="drum-machine">
+          <Display description={this.state.currentSound} />
+          {Object.keys(this.sounds).map((associatedLetter) => {
+            return (
+              <MusicButton
+                key={associatedLetter}
+                associatedLetter={associatedLetter}
+                description={this.sounds[associatedLetter].description}
+                soundUrl={this.sounds[associatedLetter].soundUrl}
+                handleClick={(description) => {
+                  this.setState(
+                    Object.assign(this.state, { currentSound: description })
+                  );
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

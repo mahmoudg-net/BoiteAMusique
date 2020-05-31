@@ -38,6 +38,9 @@ class MusicButton extends React.Component {
           controls={false}
           src={soundUrl}
           preload="true"
+          onEnded={() => {
+            this.setState({ ...this.state, isClicked: false });
+          }}
         >
           Your browser dosn't support the <code>audio</code> html element.
         </audio>
